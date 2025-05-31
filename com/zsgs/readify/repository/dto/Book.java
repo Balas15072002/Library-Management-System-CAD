@@ -1,4 +1,4 @@
-package com.zsgs.readify.data.dto;
+package com.zsgs.readify.repository.dto;
 
 public class Book {
     private String id;
