@@ -9,7 +9,5 @@ public class Readify {
     public static void main(String[] args) {
         System.out.println("Welcome to " + appName + " - Version: " + appVersion);
         new AuthView().init();
-        skosokklsls
-
     }
 }
