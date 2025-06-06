@@ -1,9 +1,10 @@
 package com.zsgs.readify.features.auth;
 
+import com.zsgs.readify.features.base.BaseModel;
 import com.zsgs.readify.repository.db.ReadifyDB;
 import com.zsgs.readify.repository.dto.RegistrationInfo;
 
-class AuthModel {
+class AuthModel extends BaseModel {
     private final AuthView view;
 
     public AuthModel(AuthView authView) {
@@ -34,7 +35,7 @@ class AuthModel {
     }
 
     private boolean isAlreadyExist(String userName) {
-        return false;
+        return false; // Write your logics here
     }
 
     public void validateCredentials(String userName, String password) {

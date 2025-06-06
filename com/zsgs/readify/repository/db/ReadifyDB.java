@@ -1,5 +1,6 @@
 package com.zsgs.readify.repository.db;
 
+import com.zsgs.readify.repository.dto.Library;
 import com.zsgs.readify.repository.dto.RegistrationInfo;
 
 public class ReadifyDB {
@@ -17,6 +18,7 @@ public class ReadifyDB {
     }
 
     private RegistrationInfo registrationInfo;
+    private Library library;
 
     public RegistrationInfo getRegistrationInfo() {
         return registrationInfo;
@@ -28,5 +30,9 @@ public class ReadifyDB {
 
     public boolean validateLoginInfo(String userName, String password) {
         return registrationInfo.getUserName().equals(userName) && registrationInfo.getPassword().equals(password);
+    }
+
+    public Library getLibrary() {
+        return library;
     }
 }

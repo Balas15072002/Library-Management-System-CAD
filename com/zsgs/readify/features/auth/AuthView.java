@@ -1,10 +1,12 @@
 package com.zsgs.readify.features.auth;
 
+import com.zsgs.readify.features.base.BaseView;
+import com.zsgs.readify.features.librarysetup.LibrarySetUpView;
 import com.zsgs.readify.repository.dto.RegistrationInfo;
 
 import java.util.Scanner;
 
-public class AuthView {
+public class AuthView extends BaseView {
     private final AuthModel model;
     private final Scanner scan = new Scanner(System.in);
 
@@ -96,13 +98,19 @@ public class AuthView {
     }
 
     public void proceedLogin() {
-        model.validateCredentials(getUserName("Enter user name for login: ", "Enter valid user name: "), getPasswordForLogin());
+        System.out.println("Do you want to proceed to login? Y/N");
+        String choice = scan.nextLine();
+        if (choice.equalsIgnoreCase("Y")) {
+            model.validateCredentials(getUserName("Enter user name for login", "Enter valid user name"), getPasswordForLogin());
+        } else {
+            exitApp();
+        }
     }
 
     public void onSuccessLogin(String userName) {
         System.out.println("Logged in successfully|");
         System.out.println("Welcome " + userName);
-        //Under development
+        new LibrarySetUpView().init();
     }
 
     public void onInvalidCredentials() {
